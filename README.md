@@ -111,3 +111,12 @@ Form Tests: pytest books/tests/test_forms.py
 
 
 
+## Things to add in future:
+
+   1. User Manangement additon, Django has very simple feature for this
+   2. Authenticate users before creation or deletion of Author and Books
+   2. Add Dockerfile and docker-compose.yml file to contenarize with Docker
+   3. Change Database to PostgreSQL
+   4. Add Sentry-sdk for catching erros in the application
+   5. Consider to add and swithc to Djago REST Framework ( DRF) if needed
+   5. And many more.....
