@@ -1,0 +1,22 @@
+{% extends "books/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>Authors</h2>
+        <a href="{% url 'books:author-create' %}">Add New Author</a>
+        
+        <ul class="list">
+            {% for author in authors %}
+                <li>
+                    <a href="{% url 'books:author-detail' author.pk %}">{{ author }}</a>
+                    <span class="actions">
+                        (<a href="{% url 'books:author-update' author.pk %}">Edit</a> |
+                        <a href="{% url 'books:author-delete' author.pk %}">Delete</a>)
+                    </span>
+                </li>
+            {% empty %}
+                <li>No authors found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

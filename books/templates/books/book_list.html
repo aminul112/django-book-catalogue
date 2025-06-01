@@ -1,0 +1,29 @@
+{% extends 'books/base.html' %}
+
+{% block title %}All Books{% endblock %}
+
+{% block content %}
+    <h2>Book Collection</h2>
+    
+    <div class="book-list">
+        {% for book in books %}
+            <div class="book-card">
+                <h3>{{ book.title }}</h3>
+               <p><strong>Author:</strong> {{ book.author.name }}</p>
+                <p><strong>Published:</strong> {{ book.published_date|date:"F j, Y" }}</p>
+                <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+                {% if book.page_count %}
+                    <p><strong>Pages:</strong> {{ book.page_count }}</p>
+                {% endif %}
+                
+                <div class="actions">
+                    <a href="{% url 'books:book-detail' book.pk %}">View Details</a>
+                    <a href="{% url 'books:book-update' book.pk %}">Edit</a>
+                    <a href="{% url 'books:book-delete' book.pk %}">Delete</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No books available. <a href="{% url 'books:book-create' %}">Add the first book</a></p>
+        {% endfor %}
+    </div>
+{% endblock %}

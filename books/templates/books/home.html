@@ -1,0 +1,10 @@
+{% extends "books/base.html" %}
+
+{% block content %}
+    <h2>Welcome to Book Catalogue</h2>
+    <p>Manage your book collection with ease.</p>
+    <p>
+        <a href="{% url 'books:author-list' %}">Browse Authors</a> or 
+        <a href="{% url 'books:book-list' %}">Browse Books</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'books/base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+    <div class="book-card">
+        <h2>{{ book.title }}</h2>
+        <p><strong>Author:</strong> {{ book.author }}</p>
+        <p><strong>Published Date:</strong> {{ book.published_date|date:"F j, Y" }}</p>
+        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+        {% if book.page_count %}
+            <p><strong>Page Count:</strong> {{ book.page_count }}</p>
+        {% endif %}
+        
+        <div class="actions">
+            <a href="{% url 'books:book-update' book.pk %}">Edit</a>
+            <a href="{% url 'books:book-delete' book.pk %}">Delete</a>
+            <a href="{% url 'books:book-list' %}">Back to List</a>
+        </div>
+    </div>
+{% endblock %}

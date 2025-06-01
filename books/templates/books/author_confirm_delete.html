@@ -1,0 +1,15 @@
+{% extends "books/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>Delete Author</h2>
+        
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="delete-confirm">Confirm Delete</button>
+            <a href="{% url 'books:author-detail' object.pk %}">Cancel</a>
+        </form>
+    </div>
+{% endblock %}
